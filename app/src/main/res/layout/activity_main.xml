@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context="com.app.deadlauncher.ui.MainActivity">
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="36sp"
+        android:textScaleX = "1"
+        android:format12Hour="hh:mm a"
+        android:textStyle="normal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextClock
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:textScaleX = "1"
+        android:format12Hour="dd - MMMM - yyyy"
+        android:textStyle="normal"
+        android:layout_below="@id/textClock"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/textBrowser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="32sp"
+        android:layout_above="@id/textCall"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/colorWhite"
+        android:text="Browser"/>
+
+    <TextView
+        android:id="@+id/textCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="32sp"
+        android:layout_above="@id/textMail"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/colorWhite"
+        android:text="Call"/>
+
+    <TextView
+        android:id="@+id/textMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="32sp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/colorWhite"
+        android:text="Mail"/>
+
+    <TextView
+        android:id="@+id/textMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="32sp"
+        android:layout_below="@id/textMail"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/colorWhite"
+        android:text="Messages"/>
+
+    <TextView
+        android:id="@+id/textLauncher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="32sp"
+        android:layout_below="@id/textMessages"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/colorWhite"
+        android:text="Whatsapp"/>
+
+    <TextView
+        android:id="@+id/textSetApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="20sp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@id/textSettings"
+        android:textColor="@color/colorWhite"
+        android:text="Set Apps"/>
+
+    <TextView
+        android:id="@+id/textSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="20sp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorWhite"
+        android:text="Settings"/>
+
+</RelativeLayout>
