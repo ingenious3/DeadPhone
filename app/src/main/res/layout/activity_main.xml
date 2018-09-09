@@ -22,7 +22,6 @@
         android:layout_centerHorizontal="true"/>
 
     <TextClock
-        android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
@@ -34,65 +33,12 @@
         android:layout_centerHorizontal="true"
         />
 
-    <TextView
-        android:id="@+id/textBrowser"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMyApps"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textScaleX="1"
-        android:textSize="32sp"
-        android:layout_above="@id/textCall"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/colorWhite"
-        android:text="Browser"/>
+        android:layout_centerVertical="true"></android.support.v7.widget.RecyclerView>
 
-    <TextView
-        android:id="@+id/textCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textScaleX="1"
-        android:textSize="32sp"
-        android:layout_above="@id/textMail"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/colorWhite"
-        android:text="Call"/>
-
-    <TextView
-        android:id="@+id/textMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textScaleX="1"
-        android:textSize="32sp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/colorWhite"
-        android:text="Mail"/>
-
-    <TextView
-        android:id="@+id/textMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textScaleX="1"
-        android:textSize="32sp"
-        android:layout_below="@id/textMail"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/colorWhite"
-        android:text="Messages"/>
-
-    <TextView
-        android:id="@+id/textLauncher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textScaleX="1"
-        android:textSize="32sp"
-        android:layout_below="@id/textMessages"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
-        android:textColor="@color/colorWhite"
-        android:text="Whatsapp"/>
 
     <TextView
         android:id="@+id/textSetApp"
@@ -101,7 +47,8 @@
         android:textScaleX="1"
         android:textSize="20sp"
         android:layout_marginLeft="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"
         android:layout_above="@id/textSettings"
         android:textColor="@color/colorWhite"
         android:text="Set Apps"/>

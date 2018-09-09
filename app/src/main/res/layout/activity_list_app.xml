@@ -7,10 +7,11 @@
     tools:context=".ui.ListAppActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerviewListApp"
+        android:id="@+id/rvListApp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:nestedScrollingEnabled="true">
+        android:nestedScrollingEnabled="true"
+        android:layout_margin="16dp">
 
     </android.support.v7.widget.RecyclerView>
 

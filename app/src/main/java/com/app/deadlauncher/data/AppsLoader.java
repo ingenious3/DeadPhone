@@ -74,13 +74,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 
     @Override
     protected void onStartLoading() {
-//        if (mInstalledApps != null) {
-//            deliverResult(mInstalledApps);
-//        }
-
-//        if (takeContentChanged() || mInstalledApps == null ) {
-            forceLoad();
-//        }
+        forceLoad();
     }
 
     @Override

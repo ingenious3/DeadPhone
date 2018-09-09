@@ -1,17 +1,11 @@
 package com.app.deadlauncher.data;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
-public class AppModel {
-
+public class AppMod {
     @SerializedName("appLabel")
     @Expose
     String appLabel;
@@ -20,14 +14,9 @@ public class AppModel {
     @Expose
     String appPackage;
 
-    @SerializedName("icon")
-    @Expose
-    Drawable icon;
-
-    public AppModel() {
+    public AppMod() {
         appLabel = "";
         appPackage = "";
-        icon = null;
     }
 
     public String getAppLabel() {
@@ -44,13 +33,5 @@ public class AppModel {
 
     public void setAppPackage(String appPackage) {
         this.appPackage = appPackage;
-    }
-
-    public Drawable getIcon() {
-        return icon;
-    }
-
-    public void setIcon(Drawable icon) {
-        this.icon = icon;
     }
 }
