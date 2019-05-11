@@ -29,7 +29,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="8dp"
             android:text="App Title"
-            android:textColor="@color/colorWhite"
             android:gravity="center_vertical"/>
 
     </LinearLayout>

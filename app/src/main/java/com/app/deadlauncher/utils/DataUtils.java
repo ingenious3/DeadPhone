@@ -41,5 +41,17 @@ public class DataUtils {
         return gson.fromJson(json, type);
     }
 
+    public static void setStringVal(Context context, String key, String val) {
+        mPreferences = context.getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putString(key, val);
+        editor.apply();
+    }
+
+    public static String getStringVal(Context context, String key) {
+        mPreferences = context.getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        String theme = mPreferences.getString(key, "");
+        return theme;
+    }
 
 }

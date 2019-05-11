@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
     tools:context="com.app.deadlauncher.ui.MainActivity">
 
     <TextClock
@@ -13,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/colorWhite"
         android:textSize="36sp"
         android:textScaleX = "1"
         android:format12Hour="hh:mm a"
@@ -24,7 +22,6 @@
     <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         android:textScaleX = "1"
         android:format12Hour="dd - MMMM - yyyy"
@@ -50,8 +47,37 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="20dp"
         android:layout_above="@id/textSettings"
-        android:textColor="@color/colorWhite"
         android:text="Set Apps"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Light Theme"
+            android:textScaleX="1"
+            android:textSize="20sp"
+            />
+
+        <CheckBox
+            android:id="@+id/themeCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorTint"
+            android:scaleX="0.70"
+            android:scaleY="0.70"
+            android:checked="false"
+            />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textSettings"
@@ -62,7 +88,20 @@
         android:layout_marginLeft="32dp"
         android:layout_marginBottom="24dp"
         android:layout_alignParentBottom="true"
-        android:textColor="@color/colorWhite"
         android:text="Settings"/>
+
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textScaleX="1"
+        android:textSize="22sp"
+        android:layout_margin="32dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Tap on 'Set Apps' to add apps in list and swipe right to remove them from list"/>
+
+
 
 </RelativeLayout>

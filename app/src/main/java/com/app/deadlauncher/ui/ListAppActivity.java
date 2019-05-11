@@ -4,16 +4,17 @@ import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.deadlauncher.R;
-import com.app.deadlauncher.adapter.HomeAppAdapter;
 import com.app.deadlauncher.adapter.ListAppAdapter;
 import com.app.deadlauncher.data.AppMod;
 import com.app.deadlauncher.data.AppModel;
@@ -33,6 +34,7 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         setContentView(R.layout.activity_list_app);
         getLoaderManager().initLoader(0, null, this);
 
@@ -52,9 +54,11 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
                             appMod.setAppPackage(appList.get(position).getAppPackage());
                             apps.add(appMod);
                             DataUtils.saveArrayList(apps,getApplicationContext());
+                            DataUtils.setStringVal(getApplicationContext(),"count",apps.size()+"");
                             ListAppActivity.this.finish();
                         } else {
-                            Toast.makeText(ListAppActivity.this,"You've already selected five apps. Remove app from list and then add. ",Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(ListAppActivity.this,"You've already selected five apps. Remove app from list and then add. ",Toast.LENGTH_SHORT).show();
+                            showToast("You've already selected five apps. Remove app from list and then add. ");
                         }
                     }
                     @Override public void onLongItemClick(View view, int position) {
@@ -62,6 +66,16 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
                 })
         );
     }
+
+    private void setAppTheme() {
+        if(DataUtils.getStringVal(getApplicationContext(), "theme") == null || DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("")
+                || DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("dark")) {
+            setTheme(R.style.DarkAppTheme);
+        } else if(DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("light")) {
+            setTheme(R.style.LightAppTheme);
+        }
+    }
+
 
     @Override
     public Loader<ArrayList<AppModel>> onCreateLoader(int id, Bundle args) {
@@ -72,9 +86,8 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
     public void onLoadFinished(Loader<ArrayList<AppModel>> loader, ArrayList<AppModel> data) {
 
         for(AppModel d : data) {
-            Log.e("MyTAG",d.getAppPackage() + " - ");
-        }
 
+        }
 
         ArrayList<AppMod> myApps = DataUtils.getArrayList(getApplicationContext());
         if( myApps == null) {
@@ -111,6 +124,20 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
             rvApps.setAdapter(adapter);
         }
     }
+
+    private void showToast(String message) {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) this.findViewById(R.id.root));
+        TextView text = (TextView) layout.findViewById(R.id.customToastText);
+
+        text.setText(message);
+
+        Toast toast = new Toast(this);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+    }
+
 
     @Override
     public void onBackPressed() {

@@ -3,4 +3,5 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#dc000000</color>
     <color name="colorShadow">#dc9c9c9c</color>
+    <color name="colorTint">#00BFDF</color>
 </resources>

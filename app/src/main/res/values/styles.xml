@@ -1,5 +1,18 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <style name="DarkAppTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:colorAccent">@color/colorTint</item>
+    </style>
+
+
+    <style name="LightAppTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:colorAccent">@color/colorTint</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
 
 </resources>
