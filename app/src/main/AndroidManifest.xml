@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.deadlauncher">
 
+    <!--<uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>-->
+
     <application
         android:clearTaskOnLaunch="true"
         android:excludeFromRecents="true"

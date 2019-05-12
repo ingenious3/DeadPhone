@@ -3,6 +3,7 @@ package com.app.deadlauncher.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ArrayList<AppMod> appList;
     private HomeAppAdapter adapter;
     private CheckBox themeCheckBox;
+    private TextClock textClock;
+    private boolean isLightTheme = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +42,20 @@ public class MainActivity extends Activity implements View.OnClickListener{
         setAppTheme();
         setContentView(R.layout.activity_main);
 
+        textClock = (TextClock) findViewById(R.id.textClock);
         textSettings = (TextView)findViewById(R.id.textSettings);
         textSetApp = (TextView)findViewById(R.id.textSetApp);
         textMsg = (TextView)findViewById(R.id.textMessage);
         themeCheckBox = (CheckBox)findViewById(R.id.themeCheckBox);
 
+        textClock.setOnClickListener(this);
         textSettings.setOnClickListener(this);
         textSetApp.setOnClickListener(this);
         themeCheckBox.setOnClickListener(this);
+
+        if(isLightTheme) {
+            themeCheckBox.setChecked(true);
+        }
 
         msgShowHide();
 
@@ -96,8 +106,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         if(DataUtils.getStringVal(getApplicationContext(),"theme") == null || DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("")
                 || DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("dark")) {
             setTheme(R.style.DarkAppTheme);
+            isLightTheme = false;
         } else if(DataUtils.getStringVal(getApplicationContext(), "theme").equalsIgnoreCase("light")) {
             setTheme(R.style.LightAppTheme);
+            isLightTheme = true;
         }
     }
 
@@ -116,15 +128,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 if(settingsIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(settingsIntent,APP_REQUEST_CODE);
                 } else {
-                    //Toast.makeText(this,"No app can perform the action. Please install an app",Toast.LENGTH_SHORT).show();
                     showToast("No app can perform the action. Please install an app");
                 }
                 break;
             case R.id.textSetApp:
                 if(!DataUtils.getStringVal(getApplicationContext(),"count").equalsIgnoreCase("")
-                    && Integer.parseInt(DataUtils.getStringVal(getApplicationContext(),"count")) == 5) {
-//                    Toast.makeText(MainActivity.this,"You've already selected five apps. Remove app from list and then add. ",Toast.LENGTH_SHORT).show();
-                    showToast("You've already selected five apps. Remove app from list and then add.");
+                    && Integer.parseInt(DataUtils.getStringVal(getApplicationContext(),"count")) == 7) {
+                    showToast("You've already selected seven apps. Remove app from list and then add.");
                     return;
                 }
                 Intent setappIntent = new Intent(this,ListAppActivity.class);
@@ -138,6 +148,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 }
                 setAppTheme();
                 recreate();
+                break;
+            case R.id.textClock:
+                Intent openClockIntent = new Intent(AlarmClock.ACTION_SHOW_ALARMS);
+                openClockIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                if(openClockIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(openClockIntent);
+                } else {
+                    showToast("No app can perform the action. Please install an app");
+                }
+                break;
         }
     }
 

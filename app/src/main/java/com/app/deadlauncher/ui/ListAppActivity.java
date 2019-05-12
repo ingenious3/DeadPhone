@@ -48,7 +48,7 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
                         if( apps == null ) {
                             apps = new ArrayList<>();
                         }
-                        if ( apps.size()<5) {
+                        if ( apps.size()<7) {
                             AppMod appMod = new AppMod();
                             appMod.setAppLabel(appList.get(position).getAppLabel());
                             appMod.setAppPackage(appList.get(position).getAppPackage());
@@ -57,8 +57,7 @@ public class ListAppActivity extends Activity implements  LoaderManager.LoaderCa
                             DataUtils.setStringVal(getApplicationContext(),"count",apps.size()+"");
                             ListAppActivity.this.finish();
                         } else {
-//                            Toast.makeText(ListAppActivity.this,"You've already selected five apps. Remove app from list and then add. ",Toast.LENGTH_SHORT).show();
-                            showToast("You've already selected five apps. Remove app from list and then add. ");
+                            showToast("You've already selected seven apps. Remove app from list and then add. ");
                         }
                     }
                     @Override public void onLongItemClick(View view, int position) {
